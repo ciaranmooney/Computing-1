@@ -1,0 +1,79 @@
+== My Answers ==
+
+==== Q1: Size of types ====
+//Use **sizeof** find out the number of bytes that C uses on your system to store the various types used in the program below.//
+
+the sum of 40 and 2 is 42
+the size of 40 is 4, and is located at 0xbfa42aa0
+the size of 2 is 4, and is located at 0xbfa42aa4
+the size of 42 is 4, and is located at 0xbfa42aa8
+the size of a is 1, and is located at 0xbfa42a99
+the size of 0 is 4, and is located at 0xbfa42aac
+the size of 1 is 4, and is located at 0xbfa42ab0
+the size of 2 is 8, and is located at 0xbfa42ac8
+the size of 3 is 2, and is located at 0xbfa42a9a
+the size of 4 is 4, and is located at 0xbfa42ab4
+the size of 5 is 4, and is located at 0xbfa42ab8
+the size of 6 is 8, and is located at 0xbfa42ad0
+the size of 7 is 2, and is located at 0xbfa42a9c
+the size of 8 is 4, and is located at 0xbfa42abc
+the size of 9 is 4, and is located at 0xbfa42ac0
+the size of 10 is 8, and is located at 0xbfa42ad8
+the size of 11 is 2, and is located at 0xbfa42a9e
+the size of 3.100000 is 4, and is located at 0xbfa42ac4
+the size of 3.140000 is 8, and is located at 0xbfa42ae0
+all these things added together make 169.240000
+
+==== Q2: Location of variables ====
+//Print out the address of the various variables used in the program and see if you can deduce how C places them in memory.  eg what things are placed near each other, what things are placed far away?  eg Are adjacent variables placed next to each other in memory or are there gaps?  (consider the results you found above using sizeof to help you answer this) //
+
+It seems equal sized quantities are grouped together 
+
+| **Quantity** | **Size** | **Location** |
+| a | 1 | 0xbfa42a99 |
+| 3 | 2 | 0xbfa42a9a |
+| 7 | 2 | 0xbfa42a9c |
+| 11 | 2 | 0xbfa42a9e |	
+| 40 | 4 | 0xbfa42aa0 |
+| 2 | 4 | 0xbfa42aa4 |
+| 42 | 4 | 0xbfa42aa8 |
+| 0 | 4 | 0xbfa42aac |
+| 1 | 4 | 0xbfa42ab0 |
+| 4 | 4 | 0xbfa42ab4 |
+| 5 | 4 | 0xbfa42ab8 |
+| 8 | 4 | 0xbfa42abc |
+| 9 | 4 | 0xbfa42ac0 |
+| 3.100 | 4 | 0xbfa42ac4 |
+| 2 | 8 | 0xbfa42ac8 |
+| 10 | 8 | 0xbfa42ad8 |
+| 3.14 | 8 | 0xbfa42ae0 |
+
+==== Q3: Overflowing and Underflowing ====
+//What are the maximum and minimum values you can store in each of the types in the program below?  //
+
+| 'Type' | 'Maximum' | 'Minimum' |
+| unsigned char | 255 (ff)| 0 (0) |
+| long | 2147483647(7fffffff) | -2147483648(80000000) |
+| int | 2147483647(7fffffff) | -2147483648(80000000)
+| long long | 9223372036854775807 | -9223372036854775808(8000000000000000) |
+| short | 32767(7fff) | -32768(ffff8000) |
+| float | 3.40282e+38 | 1.17549e-38 |
+| double |  1.79769e+308 | 2.22507e-308 |
+| unsigned long | 4294967295(ffffffff) | 0(0) |
+| unsigned int | 4294967295(ffffffff) | 0(0) |
+| unsigned long long | 18446744073709551615(ffffffffffffffff) | 0(0) |
+| unsigned short | 65535(ffff) | 0(0) |
+| signed long | 2147483647(7fffffff) | -2147483648(80000000) |
+| signed int | 2147483647(7fffffff) | -2147483648(80000000)
+| signed long long | 9223372036854775807 | -9223372036854775808(8000000000000000) |
+| signed short | 32767(7fff) | -32768(ffff8000) |
+
+//What happens when you edit the program below to overflow them by 1, and what happens when you underflow them by 1?  Cut and paste output from the edited program showing what you discover.//
+
+They seem to wrap around to the other end of the number except float and which goes to inf at max and zeros at min.
+
+==== Q4: Signed or Unsigned? ====
+
+Can you determine from your experiments above whether ##long##, ##short##, ##int##, and ##long long## types are treated as //signed// or //unsigned// by your C compiler on your machine?
+
+They seem to all be considered signed.

@@ -1,0 +1,47 @@
+write return address to frame 1
+    put return address in R0 (10 12)
+    put r0 in frame 1   (12 240)
+
+write value_to_halve (8) to frame 2 (241)
+    put 8 into R0 (10 8)
+    put R0 into frame 2 (12 241)
+    
+set R0 = 0 (10 0)
+if R0 == 0 jump to 60 (9 60)
+
+-- start half --
+write R1 to frame 4
+    put R1 into frame 4 (13 243)
+--start of loop --
+put frame 3 number in r0 (14 242)
+put number back in frame 3 (12 242)
+put frame 3 number in r1 (15 242)
+add one to R0 (1)
+add one to R1 (3)
+store R1 in frame 3 (13 242)
+r0 = R1+R0 (5)
+put r0 in r1
+    put r0 at frame 5 (12 244)
+    put number from frame 5 in r1 (15 244)
+store input number in r0 (14 241)
+put input number back in frame 1 (12 241)
+subtract result from input R0 = R0 - R1 (6)
+if result != 0 return jump to --start of loop-- (8 --start of loop--)
+-- end of loop --
+
+load return address into r0 (14 240)
+write return address into -- return to main -- (12 --return to main--)
+swap frame 3 into R0 (14 242)
+swap frame 4 into r1 (15 243)
+
+-- return to main --
+jump to return address if R0 != 0 (8 --return address--)
+
+
+frame 240
+240 return address
+241 input number
+242
+243
+244 
+

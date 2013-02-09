@@ -1,0 +1,13 @@
+I mentioned in the last reflection that I'm glad I know understand pointers. However it became clear in this weeks Swap assignment that I didn't quickly grasp how to use pointers. After trying, failing, reading the notes, and trying again I finally got it to work in a sensible way. I think more practice is in order but not this week as other demands do not permit it.
+
+Glad to have finally learnt loops! After reading the introduction to this week and explicitly being told not to use //for// loops I thought that it would be a challenge, but I agree with the introduction that //for// loops are just fancy while loops really. To be honest most of the time I have seen for loops in C/C++ I forgot which term was which. Using a //while// loop allows the same functionality with more control (at least until I start getting lazy again).
+
+I completed the showDanish task before watching the final lecture, so whilst I have completed it didn't realise at the time what the point of the task was. I may go back when I have a few minutes and re-write it to be more in-line with what was expected.
+
+Still not in the habit of writing tests as part of my programming style. This will require a concerted effort, I think the next function I have to write I will force myself to write the tests first or not do it at all!
+
+No procrastination at all this week. Got straight in an got on with it. It could be said that I procrastinated on other task in my life in order to complete this one but it's all about perspective. I'm still annoyed that OpenLearning only releases modules one week at a time. I know that next week I will be busier and would like to get some of the work done as I have finished early this week.
+
+I am once again Awesome this week, according to this website.
+
+As a personal plug I am currently looking for work in the computer programming sector, based in the Midlands, United Kingdom. Currently with few C/C++ skills, more Python, less Lua and unfortunately some LabView. If anyone out there would like to talk to me, after seeing my submissions to this course either with a job or advice I would appreciate it.

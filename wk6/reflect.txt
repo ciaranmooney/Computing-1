@@ -1,0 +1,11 @@
+It has been somewhat of a frustrating and disappointing week. I am annoyed due to finding the tasks difficult that I only managed them after the next set of assignments was release. This meant I missed out on the covered "Green Bar of Awesome" that gets displayed. 
+
+I really struggled with the memory explorer task. Mostly because of issues differences between signed and unsigned; and how they print out using printf(). There was not procrastination this week, I directly applied myself to the memory explorer task just found it bloody difficult. I went around in circles until a few hours ago. 
+
+The work that I submitted for the memory explorer task was not I think the best it could have been, but I know myself what it is I have learnt. Even if I didn't have the time to lay it all out clearly. 
+
+However I am quite please with my solution to the ROT13 task. I took my inspiration for the implementation from the Doomsday assignment. I even managed to design it in such a way that the code can be applied to any ROT cipher (I think, this is untested). There are a few magic variables in the code I submitted but I think I'll have to let it pass and press on with the next weeks assignments.
+
+I am not yet in the habit of writing test code for my work, which is a habit that I will have to get into. It seems a bit un-natural to start with the tests rather than getting something working.
+
+In terms of pointers I am incredibly glad that Richard Buckland started off with teaching the 400x controller. This made pointers easy to understand, because we could refer back to a simpler previous example. Many times I have tried and failed to understand pointers, and others would recoil in horror if I tried to explain it to them. Now I feel a lot more confident when I see them used in code.

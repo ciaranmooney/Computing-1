@@ -1,0 +1,14 @@
+The fact there were only two assignments this week was a blessing as I was busy with other personal errands. I had to carefully manage my time so that the work got done, but didn't neglect other things. So I a slightly proud of myself. 
+
+I'm also proud of the fact that this time before really starting with the wondrous C assignment I wrote some tests! Then I was quite smug to see that quite a few of my tests were the same as those used by the auto-marker! Maybe my habits are actually changing. 
+
+Glad to be doing more hardcore microprocessor work, but I was displeased with how the task was presented. It was not a very clear set of a requirements for the code. This lead to many comments beneath from people whose code was failing on technicalities. I appreciate these things were mentioned in the lecture, but that is no excuse to be clear in the task descriptions.
+
+Besides that niggling criticism, I really enjoyed it. Reading the suggestions below I used a spreadsheet to actually lay out the code which made it easy to write specific pointers. I actually wrote the task out in steps using notepad first, and then added the required numeric commands that allowed those tasks to be completed. I think I almost wrote my own programming language! It had indented code sub-blocks, named variables and everything! It allowed me to appreciate how C bridges the gap between having the steps of the task and having to do house-keeping (eg, swapping values in and out of frames).
+
+Like Dr. Buckland said at the start of the course. Knowing how to write using microprocessor commands makes my sword more awesome.
+
+Glad to still be sticking at the course especially when I've found it difficult to fit it in. I am really enjoying it still and glad to be learning lots.
+
+Still looking for a junior developer job to start in Autumn this year. So anyone in East Midlands UK wants a keen, ready to learn, bonkers Buckland appreciating employee feel free to send me a message.
+

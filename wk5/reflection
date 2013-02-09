@@ -1,0 +1,30 @@
+Much less work to do this week, maybe UNSW took pity on us for the previous week.
+
+I am up-to-date with all the assignments, because personally the next week is going to be busy.
+
+I have started to understand the BMP format, but only completed the assignment yesterday. If I get time I will look at the extra challenges to cement my understanding. Not sure what to say about memory addresses, not sure what I even learnt about them! I think the suggestion refers to those in the BMP format, which I am fine with. 
+
+I enjoyed the "Confusing" assignment, but had to submit a non-perfect answer. I realised after doing the bulk of the re-formatting of the eye-bleedingly awful code that you could take re-formatting to the n-th degree. If I tried to make everything perfect from such a bad starting point I would be here all week. I think I've made a significant improvement to what was there, and also learnt how important it is to be consistent and follow many of the wise words of Dr. Buckland (Sorry if you are a Prof).
+
+I tackled the re-formatting in a few broad steps.
+
+* Consistent indentation
+* Re-ordered functions to sensible reading order
+* Wrote tests
+* Re-wrote functions to conform to style guide and generally be more sensible.
+
+I should of probably written the tests first, and could of almost put myself in an awkward situation where my tests were failing due to my work. In future, tests first.
+
+I started re-formatting the functions starting with "test2()" as this seemed to be the final function called. Then I proceeded to "test1()", "tritest()" and "main()".
+
+One aspect of the code that remains, and that annoys me is the following:
+
+{{{
+#!code
+    printf("Triangle Vertex A (x,y): "); 
+    errorCode += scanf("%lf,%lf", &x0,&y0);
+}}}
+
+I don't like the look of it, but cannot think of a way to dis-entangle the errorCode and data input.
+
+

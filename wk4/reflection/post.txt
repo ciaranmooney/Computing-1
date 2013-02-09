@@ -1,0 +1,98 @@
+First to the homework.
+
+= Operators
+
++= is a single compound operator. In the following example the two are equivalent.
+
+{{{
+#!code
+a += b
+a = a + b
+}}}
+
+I prefer not to use +=. Whilst compact is not intuitive to many people, by which I mean myself. I prefer the verbose version instead. 
+
+++ is a unary operator (Which I believe means it only requires one variable rather than two).
+
+{{{
+#!code
+a++
+a = a + 1
+}}}
+
+This is commonly used in loops to increment the loop counter. 
+
+= #DEFINE
+
+{{{
+#!code
+    #define NUM_UNDERGRADS 210
+    #define NUM_POSTGRADS  24
+    #define NUM_STUDENTS   234
+}}}
+
+Now the first obvious problem here is the number of Undergraduates. Whichever department this data is from has been lax in their Undergraduate management. An immediate cull is needed before the university is over-run by ferral Undergrads.
+
+Secondly the program requires that the person modifying the code remembers to change all the linked values should any change. Ie if the number of postgrads goes up, the total should too. If this is not done then problems could arise.
+
+{{{
+#!code
+    #define NUM_UNDERGRADS 210
+    #define NUM_POSTGRADS  24
+    #define NUM_STUDENTS   NUM_POSTGRADS+NUM_UNDERGRADS
+}}}
+
+When the code is compiled with the above code the NUM_STUDENTS quantity is replaced by the sum of the other two. This means that another programmer does not have to change two numbers, less work and more reliable code.
+
+The problem with the second approach I found by reading other peoples blog posts so cannot take credit for realising the solution myself. However I do understand the problem.
+
+When the code is pre-compiled instances of NUM_STUDENTS are replaced by "24+210", but it is not evaluated. Which means the value planted in is exactly "24+210", which may not be a problem. 
+
+However if the equation being used is for example:
+
+{{{
+#!code
+    x = 2*NUM_STUENTS
+}}}
+
+The expected result would perhaps be 468. However the actual result will be 258. This is due to the pre-compiling producing the following code.
+
+{{{
+#!code
+    x = 2*24+210
+}}}
+
+So the multiplication takes preference over the addition.
+
+A solution to the problem is to put brackets around the #define quantity.
+
+{{{
+#!code
+    #define NUM_STUDENTS (NUM_POSTGRADS+NUM_UNDERGRADS)
+}}}
+
+Which in my example will produce:
+
+{{{
+#!code
+    x = 2*(24+210)
+}}}
+
+Now the addition takes preference as it is inside the brackets. Hopefully solving any future problems.
+
+= Reflection
+
+This weeks assignments have been the most challenging to date. As I thought I struggled to find time to actually get the assignments done with the Christmas holidays in full swing here in the UK.
+
+I was glad to see extra microprocessor assignments although the printing of a simple message was quite trivial. Having so much more capacity in the 8008 chip compared to the 4004 was like being given a supercomputer! My 8008 solution was primitive simply hard-coding the ASCII values into the memory, shuffling them into R0 and finally printing them. I should really go back and come up with something more elegant and compact.
+
+The assignments are still enjoyable, challenging but do-able. The "sort-three-numbers" assignment was a bit of pain. I thought I had a solution but fell foul of the tests that were for situations that I had not thought of. I learnt a lesson in having decent tests and testing your code before relying on it. Again my code is probably not elegant and I'm sure there is a simpler solution, but I got something that worked.
+
+The Doomsday assignment was okay. The advice in the assignment to sit down with pen and paper first helped a lot. I had the overall solution before I started to code, however the devil was in the details. I spent a lot of time trying to get my head around what to do with the 0-7 result in certain circumstances.
+
+I'd like to propose the creation of an IRC channel on Freenode. I was in need of some advice the otherday and didn't really want to wait for a response via the website. Does anyone else think they'll gain anything from an IRC channel?
+
+
+
+
+

@@ -1,0 +1,33 @@
+Glad to have learnt a bit about the memory structure of strings (ie the terminating zero) and the implications of how they were originally designed. And that alternative
+
+Learnt that a new library exists, <string.h>. I always enjoy learning someone else has done the hard work first.
+
+Glad we have learnt about arrays and iterating over them, as this is the data structure I have used the most in the past. I'm also glad to be learning that there is not one way to arrange data on a disk. Which has led me to appreciated more the clever stuff that, Python for example, does so I can have dynamic lists.
+
+Glad that pointers are still being explained to cement the ideas of the different notations and what they mean. I got my head around it once and have now forgotten. More pratice playing with them is needed.
+
+I will try and summarise what understand about pointers below.
+
+ char *message = "tree"';
+ // Chose a point in memory and call it "message", store the value "tree" elsewhere. 
+ // Store the position of of the first value "t" at the point in the memory called "message"
+  
+ &message;
+ // The position in memory called "message".
+ 
+ message;
+ // The value contained in "message", ie the position in memory of "t"
+ 
+ strlen (message)
+ // A function which takes in a position. The value of message is the first position of the string, "tree"
+ 
+ *message
+ // * (Star) looks up in memory the value in memory at the position you have indicated.
+
+ message[0]
+ //Takes the value of message and adds the value in the brackets to it.
+ //Then returns contents of the cell with the address of the summation.
+ 
+I think I have got the above right, feel free to correct me.
+
+Disappointed by this weeks assignemnts, but glad they were not complicated which has given me time to work on other things. Looking foward to getting my fingers dirty next with some juicy challenges.
