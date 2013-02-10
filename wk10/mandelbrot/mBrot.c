@@ -59,16 +59,23 @@ then a zoom level of 30/2 would give us the same mandelbrot.
 
 // *** STUDENT REQUIRED TO COMPLETE THESE FUNCTIONS *** //
 int mandelbrot(double x, double y);
-double squareX(double x);
-double squareY(double y);
+double squareX(double x, double y);
+double squareY(double x, double y);
 double length(double x, double y);
 void tests(); 
+int runMbrot(void);
  
 ////////////////////////////////////////////////////////////////////////
 // complete the mandelbrot algorithm to render a beautiful ASCII-BROT!
  
 int main(int argc, char * argv[]) {
   //tests();
+  runMbrot();
+  
+  return EXIT_SUCCESS;
+}
+
+int runMbrot(void){
   printf(" UNSW Computing 1 - ASCII-BROT\n");
  
   // iterate through each row
@@ -100,23 +107,25 @@ int main(int argc, char * argv[]) {
 
 void tests(){
     printf("Running SquareX tests.\n");
-    assert(squareX(2.0)    == 4.0);
-    assert(squareX(-2.0)   == 4.0);
-    assert(squareX(1.0)    == 1.0);
-    assert(squareX(-1.0)   == 1.0);
-    assert(squareX(0.5)  == 0.25);
-    assert(squareX(-0.5) == 0.25);
-    assert(squareX(0.0) == 0.0);
+    assert(squareX(1.0,1.0)   == 0.0);
+    assert(squareX(-1.0,-1.0) == 0.0);
+    assert(squareX(1.0,0.0)   == 1.0);
+    assert(squareX(0.0,-1.0)  == -1.0);
+    assert(squareX(0.5,0.0)   == 0.25);
+    assert(squareX(0.0,0.5)  == -0.25);
+    assert(squareX(1.0,0.5)  == 0.75);
+    assert(squareX(0.5,1.0)   == -0.75);
     printf("SquareX tests passed.\n");
     
     printf("Running SquareY tests.\n");
-    assert(squareY(1.0)    == -1.0); //i^2 imaginary numbers
-    assert(squareY(-1.0)   == -1.0);  //-i^2
-    assert(squareY(2.0)    == -4.0); //2i**2
-    assert(squareY(-2.0)   == -4.0);  //-2i**2
-    assert(squareY(-0.5)   == -0.25);  //
-    assert(squareY(0.5)    == -0.25);  //
-    assert(squareY(0.0)    == 0.0);  //
+    assert(squareY(1.0,1.0)   == 2.0);
+    assert(squareY(-1.0,-1.0) == 2.0);
+    assert(squareY(1.0,0.0)   == 0.0);
+    assert(squareY(0.0,-1.0)  == 0.0);
+    assert(squareY(0.5,0.0)   == 0.0);
+    assert(squareY(0.0,0.25)  == 0.0);
+    assert(squareY(1.0,0.25)  == 0.5);
+    assert(squareY(0.5,1.0)   == 1.0);
     printf("SquareY tests passed.\n");
     
     printf("Running lengthSquared tests.\n");
@@ -128,6 +137,7 @@ void tests(){
     
     printf("Running manbrot tests.\n");
     assert(mandelbrot(1,1) == FALSE);
+    assert(mandelbrot(-1,1) == FALSE);
     printf("Manbrot tests passed.\n");
     
     
@@ -153,10 +163,12 @@ Step 1: get x as a percentage of the maximum screen x
 Step 2: multiply x by the X_RANGE (of the mandelbrot "world" coordinates)
 Step 3: add the MIN_X (of the Mandelbrot range) to the value you got in step 2
  */
-
-  Cx = ((x/HEIGHT) * X_RANGE) + MIN_X;
-  Cy = ((y/WIDTH) * Y_RANGE) + MIN_Y;
-  printf("Cx=%f, Cy=%f\n", Cx, Cy);
+//  Cx = x;
+//  Cy = y;
+  Cx = ((x/WIDTH) * X_RANGE) + MIN_X;
+  Cy = ((y/HEIGHT) * Y_RANGE) + MIN_Y;
+  distance = length(Cx, Cy);
+  //printf("x=%f, y=%f, Cx=%f, Cy=%f, dis=%f \n", x, y, Cx, Cy, distance);
   Zx = 0.0;
   Zy = 0.0;
 
@@ -169,14 +181,15 @@ Step 3: add the MIN_X (of the Mandelbrot range) to the value you got in step 2
 
   // Z = sum(real) + sum(imaginary)
   // Z = real(a + x^2 + (yi)^2) + imaginary (2xyi + bi)
-
+  
   while (counter < MAX_ITERATIONS && distance < 4.0){
-    real = squareX(Zx) + squareY(Zy) + Cx;
-    imag = (2.0*Zx*Zy) + Cy;
+    real = squareX(Zx, Zy) + Cx;
+    imag = squareY(Zx, Zy) + Cy;
+    
+    distance = length(real, imag);
     Zx = real;
     Zy = imag;
-    distance = length(Zx, Zy);
-    printf("real = %f, imag = %f, dis = %f, quit=%i\n", Zx, Zy, distance, distance < 4.0);
+  //  printf("real = %f, imag = %f, dis = %f, quit=%i\n", Zx, Zy, distance, distance < 4.0);
     counter = counter + 1;
   }
 
@@ -193,12 +206,8 @@ Step 3: add the MIN_X (of the Mandelbrot range) to the value you got in step 2
  
 double length(double x, double y) {
   double length;
-  double X, Y;
 
-  X = squareX(x);
-  Y = squareX(y);
-  //printf("X=%f, Y=%f\n", X, Y);
-  length = X + Y;
+  length = (x*x) + (y*y);
   return length;
 }
  
@@ -206,20 +215,19 @@ double length(double x, double y) {
 ////////////////////////////////////////////////////////////////////////
 // performs the calculation Z^2 for the real part of a complex number
  
-double squareX(double x) {
+double squareX(double x, double y) {
     double X;
-    X = x * x;
+    X = (x*x) - (y*y);
     return X; 
 }
  
 ////////////////////////////////////////////////////////////////////////
 // performs the calculation Z^2 for the imaginary part of a complex number
  
-double squareY(double y) {
+double squareY(double x, double y) {
     // multiply by magnitude then the sign.
     double Y;
-    Y = (y * y) * -1.0;
-
+    Y = 2 * x * y;
     return Y;
 }
  
